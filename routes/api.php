@@ -13,29 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/produs', function(){
-    return response()->json(
-        [
-            "message" => "Get Method Success"
-        ]);
+Route::get('/products', 'ProductController@get');
 
-});
+Route::post('/product', 'ProductController@post');
 
-Route::post('/produk/', function(){
-    return response()->json([
-        "message" => "Post Method Success"
-    ]);
-});
+Route::put('/product/{id}', 'ProductController@put');
 
-Route::put('/produk/{id}', function($id){
-    return response()->json([
-        "message" => "Put Method Success" . $id
-    ]);
-});
-
-
-Route::delete('/produk/{id}', function($id){
-    return response()->json([
-        "message" => "Delete Method Success"  . $id
-    ]);
-});
+Route::delete('/product/{id}', 'ProductController@delete');
